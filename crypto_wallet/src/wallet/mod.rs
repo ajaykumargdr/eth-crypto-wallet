@@ -3,8 +3,8 @@ mod errors;
 mod eth_wallet;
 mod utils;
 
-use account::*;
-use errors::*;
+pub use account::*;
+pub use errors::*;
 pub use eth_wallet::*;
 pub use utils::*;
 
@@ -34,3 +34,4 @@ use web3::{
     },
     Web3,
 };
+

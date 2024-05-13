@@ -23,9 +23,7 @@ pub fn eth_to_wei(eth_val: f64) -> U256 {
 
 pub fn get_public_address(public_key: &PublicKey) -> Address {
     let public_key = public_key.serialize_uncompressed();
-
     debug_assert_eq!(public_key[0], 0x04);
-
     let hash = keccak256(&public_key[1..]);
     Address::from_slice(&hash[12..])
 }
