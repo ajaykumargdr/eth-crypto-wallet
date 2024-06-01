@@ -1,0 +1,25 @@
+[[bin]]
+name = 'genwallet'
+path = 'src/main.rs'
+
+[package]
+name = 'crypto_wallet'
+version = '0.1.0'
+edition = '2021'
+
+[dependencies]
+web3 = '0.17.0'
+serde_json = '1.0'
+serde = {version = '1.0', features = ['derive']}
+rpassword = '7.3.1'
+sled = "0.34.7"
+dirs = "5.0.1"
+clap = { version = '4.5.3', features = ['derive']}
+secp256k1 = {version = '0.20.3', features = ['rand']}
+tokio = {version = '1',features = ['full']}
+pbkdf2 = "0.12.2"
+sha2 = "0.10.8"
+aes="0.7.5"
+hex="0.4.3"
+block-modes="0.8.1"
+spinoff = "0.8.0"
