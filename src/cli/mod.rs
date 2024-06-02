@@ -12,11 +12,24 @@ mod handlers;
 
 pub use commands::*;
 
+const ASCII_LOGO: &str = r#"
+
+  /$$$$$$                      /$$      /$$           /$$ /$$             /$$
+ /$$__  $$                    | $$  /$ | $$          | $$| $$            | $$    
+| $$  \__/  /$$$$$$  /$$$$$$$ | $$ /$$$| $$  /$$$$$$ | $$| $$  /$$$$$$  /$$$$$$  
+| $$ /$$$$ /$$__  $$| $$__  $$| $$/$$ $$ $$ |____  $$| $$| $$ /$$__  $$|_  $$_/  
+| $$|_  $$| $$$$$$$$| $$  \ $$| $$$$_  $$$$  /$$$$$$$| $$| $$| $$$$$$$$  | $$    
+| $$  \ $$| $$_____/| $$  | $$| $$$/ \  $$$ /$$__  $$| $$| $$| $$_____/  | $$ /$$
+|  $$$$$$/|  $$$$$$$| $$  | $$| $$/   \  $$|  $$$$$$$| $$| $$|  $$$$$$$  |  $$$$/
+ \______/  \_______/|__/  |__/|__/     \__/ \_______/|__/|__/ \_______/   \___/
+"#;
+
 #[derive(Debug, Parser)]
 #[command(
     name = "genwallet",
     version = "0.0.1",
-    long_about = "Genesis Wallet (genwallet) is a powerful yet user-friendly command-line interface (CLI) that empowers you to manage your Ethereum accounts directly from your terminal."
+    before_help = ASCII_LOGO,
+    long_about = "GenWallet (Genesis Wallet) is a powerful yet user-friendly command-line interface (CLI) that empowers you to manage your Ethereum accounts directly from your terminal."
 )]
 pub struct Cli {
     #[command(subcommand)]
