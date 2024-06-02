@@ -1,52 +1,5 @@
 use super::*;
 
-#[derive(Debug, Parser)]
-#[command(
-    name = "genwallet",
-    version = "0.0.1",
-    long_about = "Genesis Wallet (genwallet) is a powerful yet user-friendly command-line interface (CLI) that empowers you to manage your Ethereum accounts directly from your terminal."
-)]
-pub struct Cli {
-    #[command(subcommand)]
-    pub commands: Commands,
-}
-
-impl Cli {
-    pub async fn run(self) -> Result<()> {
-        match &self.commands {
-            Commands::Init { endpoint } => handlers::init(endpoint).await,
-
-            Commands::Create { account_name } => handlers::create(account_name),
-
-            Commands::Import {
-                account_name,
-                secret,
-            } => handlers::import(account_name, secret),
-
-            Commands::Export { account_name, path } => handlers::export(account_name, path),
-
-            Commands::Balance { account_name } => handlers::balance(account_name).await,
-
-            Commands::Id { account_name } => handlers::id(account_name),
-
-            Commands::Transfer {
-                account_name,
-                to,
-                eth,
-            } => handlers::transfer(account_name, to, *eth).await,
-
-            Commands::List { balance } => handlers::list(*balance).await,
-
-            Commands::Rename {
-                old_account_name,
-                new_account_name,
-            } => handlers::rename(old_account_name, new_account_name),
-
-            Commands::Remove { account_name } => handlers::remove(account_name),
-        }
-    }
-}
-
 #[derive(Debug, Subcommand)]
 pub enum Commands {
     // Todo(return secret phrase)
@@ -140,4 +93,40 @@ pub enum SecretKey {
         /// The secret key to import
         secret_key: String,
     },
+}
+
+impl Commands {
+    pub async fn run(&self) -> Result<()> {
+        match &self {
+            Commands::Init { endpoint } => handlers::init(endpoint).await,
+
+            Commands::Create { account_name } => handlers::create(account_name),
+
+            Commands::Import {
+                account_name,
+                secret,
+            } => handlers::import(account_name, secret),
+
+            Commands::Export { account_name, path } => handlers::export(account_name, path),
+
+            Commands::Balance { account_name } => handlers::balance(account_name).await,
+
+            Commands::Id { account_name } => handlers::id(account_name),
+
+            Commands::Transfer {
+                account_name,
+                to,
+                eth,
+            } => handlers::transfer(account_name, to, *eth).await,
+
+            Commands::List { balance } => handlers::list(*balance).await,
+
+            Commands::Rename {
+                old_account_name,
+                new_account_name,
+            } => handlers::rename(old_account_name, new_account_name),
+
+            Commands::Remove { account_name } => handlers::remove(account_name),
+        }
+    }
 }
