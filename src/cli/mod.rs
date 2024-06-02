@@ -29,7 +29,10 @@ const ASCII_LOGO: &str = r#"
     name = "genwallet",
     version = "0.0.1",
     before_help = ASCII_LOGO,
-    long_about = "GenWallet (Genesis Wallet) is a powerful yet user-friendly command-line interface (CLI) that empowers you to manage your Ethereum accounts directly from your terminal."
+    long_about = "GenWallet (Genesis Wallet) is a powerful yet user-friendly command-line interface (CLI),
+that empowers you to manage your Ethereum accounts directly from your terminal.
+Genwallet provides a comprehensive set of features to handle various account-related
+operations securely and efficiently."
 )]
 pub struct Cli {
     #[command(subcommand)]
