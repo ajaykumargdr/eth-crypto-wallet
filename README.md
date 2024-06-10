@@ -3,6 +3,28 @@
 
 Genwallet is a powerful yet user-friendly command-line interface (CLI) for managing your Ethereum accounts directly from your terminal. Genwallet provides a comprehensive set of features to handle various account-related operations securely and efficiently.
 
+## Table of Contents
+
+- [Features](#features)
+- [Security](#security)
+- [Install Rust](#install-rust)
+- [Install Genwallet](#install-genwallet)
+- [Usage](#usage)
+  - [Initialize the Wallet](#initialize-the-wallet)
+  - [Create a New Account](#create-a-new-account)
+  - [Import an Existing Account](#import-an-existing-account)
+  - [Export an Account to a File](#export-an-account-to-a-file)
+  - [Get Account Balance](#get-account-balance)
+  - [Get the Public Address of an Account](#get-the-public-address-of-an-account)
+  - [Transfer ETH Between Accounts](#transfer-eth-between-accounts)
+  - [List All Accounts](#list-all-accounts)
+  - [Rename an Account](#rename-an-account)
+  - [Remove an Account](#remove-an-account)
+- [Internet Access](#internet-access)
+- [Contributing](#contributing)
+- [License](#license)
+- [Questions and Feedback](#questions-and-feedback)
+
 ## Features
 
 - Create new accounts
